@@ -1,11 +1,12 @@
 .page {
   height: 100vh;
-  background-image: var(--bg-image);
+  background-image: var(--bg-image, url("../images/cover-image-dark.png"));
   background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--title-color);
   background-position: center;
   background-attachment: fixed;
+  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
 .header {
@@ -16,7 +17,7 @@
   grid-template-rows: 1fr min-content 1fr;
   justify-items: end;
   align-items: center;
-  padding: var(--offset-sm);
+  padding: var(--offset-sm, 10px);
 }
 
 .decor-rec {
@@ -68,7 +69,7 @@ button {
   display: block;
   background-color: transparent;
   font-weight: 400;
-  color: var(--button-color, #FF0070);
+  color: var(--button-color);
   line-height: 1;
   padding: 2px 13px 4px;
   text-align: center;
@@ -78,19 +79,19 @@ button {
 }
 
 .header__theme-menu-item:has(.header__theme-menu-button_active) {
-  border: 1px solid var(--button-color, #FF0070);
+  border: 1px solid var(--button-color);
 }
 
 .header__theme-menu-item:hover {
-  border: 1px solid var(--button-hover-color, #FF007066);
+  border: 1px solid var(--button-hover-color);
 }
 
-.header__theme-menu-item:focus-visible {
+.header__theme-menu-button:focus-visible {
   outline: none;
 }
 
-.header__theme-menu-item:focus {
-  border-bottom: 1px solid var(--button-color, #FF0070);
+.header__theme-menu-button:focus {
+  border-bottom: 1px solid var(--button-color);
 }
 
 .header__theme-menu-button_active {
@@ -108,8 +109,8 @@ button {
   right: var(--offset-sm, 10px);
   width: 25.04px;
   height: 25px;
-  border-top: 1px solid var(--decor-color, #FF0070);
-  border-right: 1px solid var(--decor-color, #FF0070);
+  border-top: 1px solid var(--decor-color);
+  border-right: 1px solid var(--decor-color);
 }
 
 .decorated-zone::after {
@@ -119,8 +120,8 @@ button {
   left: var(--offset-sm, 10px);
   width: 25.04px;
   height: 25px;
-  border-bottom: 1px solid var(--decor-color, #FF0070);
-  border-left: 1px solid var(--decor-color, #FF0070);
+  border-bottom: 1px solid var(--decor-color);
+  border-left: 1px solid var(--decor-color);
 }
 
 .logo {
@@ -136,12 +137,7 @@ button {
 }
 
 .logo-shadow-head {
-  text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
-}
-
-.title-header {
-  display: block;
-  padding: 0 10px 0;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .title {
@@ -153,14 +149,14 @@ button {
 }
 
 .title-decor {
-  background-color: var(--accent-color, #FF0070);
+  background-color: var(--accent-color);
 }
 
 .content {
   display: grid;
   grid-template-rows: repeat(4, min-content);
   gap: 50px;
-  padding: 0 var(--offset-sm) 0;
+  padding: 0 var(--offset-sm, 10px) 0;
 }
 
 .section {
@@ -188,7 +184,7 @@ button {
   font-weight: 700;
   font-size: inherit;
   line-height: inherit;
-  color: var(--section-title-color, #FF0070);
+  color: var(--section-title-color);
 }
 
 .card__text {
@@ -201,7 +197,7 @@ button {
 
 .card__link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .card__link:hover {
@@ -263,13 +259,13 @@ button {
 }
 
 .logo-shadow-footer {
-  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 @media (width >= 768px) {
   .header {
     min-height: 1024px;
-    padding: var(--offset-md);
+    padding: var(--offset-md, 20px);
   }
 
   .decor-rec { 
@@ -298,7 +294,7 @@ button {
   }
 
   .content {
-    padding: 0 var(--offset-md) 0;
+    padding: 0 var(--offset-md, 20px) 0;
     gap: 80px;
   }
 
@@ -377,7 +373,7 @@ button {
 @media (width >= 1024px) {
   .header {
     min-height: 768px;
-    padding: var(--offset-md);
+    padding: var(--offset-md, 20px);
   }
 
   .header__theme-menu {
